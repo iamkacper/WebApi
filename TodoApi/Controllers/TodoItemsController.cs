@@ -54,6 +54,7 @@ namespace TodoApi.Controllers
             }
 
             todoItem.Name = todoItemDTO.Name;
+            todoItem.Surname = todoItemDTO.Surname;
             todoItem.IsComplete = todoItemDTO.IsComplete;
 
             try
@@ -105,6 +106,7 @@ namespace TodoApi.Controllers
             {
                 Id = todoItem.Id,
                 Name = todoItem.Name,
+                Surname = todoItem.Surname,
                 IsComplete = todoItem.IsComplete
             };
     }
