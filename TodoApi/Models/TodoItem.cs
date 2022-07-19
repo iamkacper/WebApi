@@ -2,27 +2,12 @@
 {
     public class TodoItem
     {
-        public long Id { get; set; }
-        public string? Name { get; set; }
-        public string? Surname { get; set; }   
-        public bool IsComplete { get; set; }
-        public string? Secret { get; set; }
-        
-    }
-}
-
-/*
-namespace TodoApi.Models
-{
-    public class TodoItem
-    {
         public long ClientId { get; set; }
-        public long CardNumber { get; set; }    
-        public long Amount { get; set; }    
+        public long CardNumber { get; set; }
+        public long Amount { get; set; }
         public string? Currency { get; set; }
         public bool IsComplete { get; set; }
         public string? Secret { get; set; }
-        
+
     }
-} 
- */
+}
