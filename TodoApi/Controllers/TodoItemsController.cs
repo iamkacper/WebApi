@@ -42,7 +42,7 @@ namespace TodoApi.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateTodoItem(long id, PaymentDTO todoPaymentDTO)
         {
-            if (id != todoPaymentDTO.ClientId)
+            if (id != todoPaymentDTO.Id)
             {
                 return BadRequest();
             }
@@ -53,9 +53,10 @@ namespace TodoApi.Controllers
                 return NotFound();
             }
 
-            todoItem.ClientId = todoPaymentDTO.ClientId;
+            todoItem.Id = todoPaymentDTO.Id;
             todoItem.CardNumber = todoPaymentDTO.CardNumber;
-            todoItem.Amount = todoPaymentDTO.Amount;todoItem.Currency = todoPaymentDTO.Currency;
+            todoItem.Amount = todoPaymentDTO.Amount;
+            todoItem.Currency = todoPaymentDTO.Currency;
 
             try
             {
@@ -77,7 +78,7 @@ namespace TodoApi.Controllers
             await _context.SaveChangesAsync();
 
             //return CreatedAtAction("GetTodoItem", new { id = todoItem.Id }, todoItem);
-            return CreatedAtAction(nameof(GetTodoItem), new { Clientid = todoItem.ClientId }, todoItem);
+            return CreatedAtAction(nameof(GetTodoItem), new { Clientid = todoItem.Id }, todoItem);
         }
         // DELETE: api/TodoItems/5
         [HttpDelete("{id}")]
@@ -98,17 +99,16 @@ namespace TodoApi.Controllers
 
         private bool TodoItemExists(long id)
         {
-            return _context.TodoItems.Any(e => e.ClientId == id);
+            return _context.TodoItems.Any(e => e.Id == id);
         }
 
         private static PaymentDTO PaymentToDTO(TodoItem todoItem) =>
             new PaymentDTO
             {
-                ClientId = todoItem.ClientId,
+                Id = todoItem.Id,
                 CardNumber = todoItem.CardNumber,
                 Amount = todoItem.Amount,
-                Currency = todoItem.Currency,
-                IsComplete = todoItem.IsComplete
+                Currency = todoItem.Currency
             };
     }
 }
