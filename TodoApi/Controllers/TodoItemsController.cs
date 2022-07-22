@@ -57,6 +57,7 @@ namespace TodoApi.Controllers
             todoItem.CardNumber = todoPaymentDTO.CardNumber;
             todoItem.Amount = todoPaymentDTO.Amount;
             todoItem.Currency = todoPaymentDTO.Currency;
+            todoItem.CardSecurityCode =todoPaymentDTO.CardSecurityCode;
 
             try
             {
@@ -108,7 +109,8 @@ namespace TodoApi.Controllers
                 Id = todoItem.Id,
                 CardNumber = todoItem.CardNumber,
                 Amount = todoItem.Amount,
-                Currency = todoItem.Currency
+                Currency = todoItem.Currency,
+                CardSecurityCode = todoItem.CardSecurityCode
             };
     }
 }
