@@ -11,10 +11,13 @@ namespace TodoApi.Models
         public string? CardNumber { get; set; }
 
         [Range(100, 999, ErrorMessage = "Please enter a valid CVV.")]
-        public string? CardSecurityCode { get; set; }   
+        public string? CardSecurityCode { get; set; }
+        
+        [StringLength(4, ErrorMessage = "Please enter a valid Expiry date.")]  // [Range(1000, 9999, ErrorMessage = "Please enter a valid Expiry date.")]
+        public string? ExpiryDate { get; set; }   
 
         [Range((0.1), 100, ErrorMessage = "Price must be between €0.1 and €100")]
-        public string? Amount { get; set; }    
+        public string? Amount { get; set; }
 
         public string? Currency { get; set; }
     }

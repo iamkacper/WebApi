@@ -58,6 +58,7 @@ namespace TodoApi.Controllers
             todoItem.Amount = todoPaymentDTO.Amount;
             todoItem.Currency = todoPaymentDTO.Currency;
             todoItem.CardSecurityCode =todoPaymentDTO.CardSecurityCode;
+            todoItem.ExpiryDate = todoPaymentDTO.ExpiryDate;
 
             try
             {
@@ -110,7 +111,8 @@ namespace TodoApi.Controllers
                 CardNumber = todoItem.CardNumber,
                 Amount = todoItem.Amount,
                 Currency = todoItem.Currency,
-                CardSecurityCode = todoItem.CardSecurityCode
+                CardSecurityCode = todoItem.CardSecurityCode,
+                ExpiryDate = todoItem.ExpiryDate
             };
     }
 }
